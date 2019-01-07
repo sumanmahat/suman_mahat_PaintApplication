@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _7202708_PaintApplication.NewFolder1
+namespace _77202708_PaintApplication
 {
-    interface Shape
+    class Shapes
     {
-        object getShape();
     }
 }

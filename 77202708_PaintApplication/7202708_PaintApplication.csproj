@@ -53,6 +53,8 @@
       <DependentUpon>DashBoard.cs</DependentUpon>
     </Compile>
     <Compile Include="NewFolder1\Circle.cs" />
+    <Compile Include="NewFolder1\Lines.cs" />
+    <Compile Include="NewFolder1\Polygon.cs" />
     <Compile Include="NewFolder1\Rectangle.cs" />
     <Compile Include="NewFolder1\Shape.cs" />
     <Compile Include="NewFolder1\ShapeFactory.cs" />

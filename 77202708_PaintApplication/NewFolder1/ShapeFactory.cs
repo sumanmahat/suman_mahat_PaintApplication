@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _77202708_PaintApplication.NewFolder1
+namespace _7202708_PaintApplication.NewFolder1
 {
     class ShapeFactory
     {
@@ -15,12 +15,12 @@ namespace _77202708_PaintApplication.NewFolder1
             {
                 return null;
             }
-            if (shapeType.equalsIgnoreCase("CIRCLE"))
+            if (shapeType.Equals("CIRCLE"))
             {
                 return new Circle();
 
             }
-            else if (shapeType.equalsIgnoreCase("RECTANGLE"))
+            else if (shapeType.Equals("RECTANGLE"))
             {
                 return new Rectangle();
 
