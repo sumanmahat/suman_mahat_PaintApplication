@@ -1,0 +1,7 @@
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\77202708_PaintApplication\77202708_PaintApplication\obj\Debug\7202708_PaintApplication.csprojResolveAssemblyReference.cache
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\77202708_PaintApplication\77202708_PaintApplication\obj\Debug\_7202708_PaintApplication.DashBoard.resources
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\77202708_PaintApplication\77202708_PaintApplication\obj\Debug\_77202708_PaintApplication.Properties.Resources.resources
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\77202708_PaintApplication\77202708_PaintApplication\obj\Debug\7202708_PaintApplication.csproj.GenerateResource.Cache
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\77202708_PaintApplication\77202708_PaintApplication\obj\Debug\77202708_PaintApplication.exe
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\77202708_PaintApplication\77202708_PaintApplication\obj\Debug\77202708_PaintApplication.pdb
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\77202708_PaintApplication\77202708_PaintApplication\bin\Debug\77202708_PaintApplication.exe.config
