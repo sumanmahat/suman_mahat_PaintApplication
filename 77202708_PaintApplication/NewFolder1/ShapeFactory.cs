@@ -1,33 +1,33 @@
-﻿using System;
+﻿using _7202708_PaintApplication.NewFolder1;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _7202708_PaintApplication.NewFolder1
+namespace Shapes
 {
     class ShapeFactory
     {
-        //use getShape method to get object of type shape 
-        public Shape getShape(String shapeType)
+        public Shape getShape(string shapeType)
         {
-            if (shapeType == null)
+            Shape shape = null;
+            switch (shapeType)
             {
-                return null;
+                case "CIRCLE":
+                    shape = new Circle();
+                    break;
+                case "RECTANGLE":
+                    shape = new Rectangles();
+                    break;
+                case "LINE":
+                    shape = new Lines();
+                    break;
+                case "STRING":
+                    shape = new TextGraphic();
+                    break;
             }
-            if (shapeType.Equals("CIRCLE"))
-            {
-                return new Circle();
-
-            }
-            else if (shapeType.Equals("RECTANGLE"))
-            {
-                return new Rectangle();
-
-            }
-           
-
-            return null;
+            return shape;
         }
     }
 }

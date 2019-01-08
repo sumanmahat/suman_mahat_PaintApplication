@@ -22,7 +22,7 @@ namespace Shapes
         public void addPoint(Point p)
         {
             listPoints.Add(p);
-        }
+        }   
 
         public List<Point> getPoint()
         {

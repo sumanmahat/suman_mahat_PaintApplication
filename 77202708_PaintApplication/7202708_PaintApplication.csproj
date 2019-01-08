@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MaterialSkin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialSkin.0.2.1\lib\MaterialSkin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,22 +50,38 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DashBoard.cs">
+    <Compile Include="GraphicalProgramming.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DashBoard.Designer.cs">
-      <DependentUpon>DashBoard.cs</DependentUpon>
+    <Compile Include="GraphicalProgramming.Designer.cs">
+      <DependentUpon>GraphicalProgramming.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HelpCommand.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HelpCommand.Designer.cs">
+      <DependentUpon>HelpCommand.cs</DependentUpon>
     </Compile>
     <Compile Include="NewFolder1\Circle.cs" />
     <Compile Include="NewFolder1\Lines.cs" />
     <Compile Include="NewFolder1\Polygon.cs" />
-    <Compile Include="NewFolder1\Rectangle.cs" />
+    <Compile Include="NewFolder1\Rectangles.cs" />
     <Compile Include="NewFolder1\Shape.cs" />
     <Compile Include="NewFolder1\ShapeFactory.cs" />
+    <Compile Include="NewFolder1\TextGraphic.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="DashBoard.resx">
-      <DependentUpon>DashBoard.cs</DependentUpon>
+    <Compile Include="SimplePaint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SimplePaint.Designer.cs">
+      <DependentUpon>SimplePaint.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="GraphicalProgramming.resx">
+      <DependentUpon>GraphicalProgramming.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HelpCommand.resx">
+      <DependentUpon>HelpCommand.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -72,6 +92,10 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="SimplePaint.resx">
+      <DependentUpon>SimplePaint.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
