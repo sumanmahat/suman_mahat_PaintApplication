@@ -35,31 +35,31 @@ namespace _77202708_PaintApplication
         }
 
         /// <summary>
-        /// 
+        /// to set color in label when click 
         /// </summary>
         private void ResetToolBar()
         {
-            toolRectangle.BackColor = Color.Red;
+            lbl_rectangle.BackColor = Color.Red;
             toolFillRectangle.BackColor = Color.DarkGray;
-            toolCircle.BackColor = Color.DarkGray;
+            lbl_circle.BackColor = Color.DarkGray;
             toolFillCircle.BackColor = Color.DarkGray;
-            toolPolygon.BackColor = Color.DarkGray;
+            lbl_polygon.BackColor = Color.DarkGray;
             toolFillPolygon.BackColor = Color.DarkGray;
-            toolLine.BackColor = Color.DarkGray;
+            lbl_line.BackColor = Color.DarkGray;
             listPoint.Clear();
         }
 
         private void toolRectangle_Click(object sender, EventArgs e)
         {
             ResetToolBar();
-            toolRectangle.BackColor = Color.LightSlateGray;
+            lbl_rectangle.BackColor = Color.LightSlateGray;
             shape = "RECTANGLE";
         }
 
         private void toolCircle_Click(object sender, EventArgs e)
         {
             ResetToolBar();
-            toolCircle.BackColor = Color.LightSlateGray;
+            lbl_circle.BackColor = Color.LightSlateGray;
             shape = "CIRCLE";
         }
 
@@ -73,7 +73,7 @@ namespace _77202708_PaintApplication
         private void toolPolygon_Click(object sender, EventArgs e)
         {
             ResetToolBar();
-            toolPolygon.BackColor = Color.LightSlateGray;
+            lbl_polygon.BackColor = Color.LightSlateGray;
             shape = "POLYGON";
         }
 
@@ -87,7 +87,7 @@ namespace _77202708_PaintApplication
         private void toolLine_Click(object sender, EventArgs e)
         {
             ResetToolBar();
-            toolLine.BackColor = Color.LightSlateGray;
+            lbl_line.BackColor = Color.LightSlateGray;
             shape = "LINE";
         }
 
@@ -157,7 +157,7 @@ namespace _77202708_PaintApplication
                     }
                     else
                     {
-                        Polygon polygon = getUpdatedPolygon(new Point(MousePosition.X, MousePosition.Y));
+                        Polygon polygon = UpdatePolygon(new Point(MousePosition.X, MousePosition.Y));
                         shapeList.RemoveAt(shapeList.Count - 1);
                         shapeList.Add(polygon);
                     }
@@ -191,7 +191,7 @@ namespace _77202708_PaintApplication
                     }
                     else
                     {
-                        Polygon polygon = getUpdatedPolygon(new Point(MousePosition.X, MousePosition.Y));
+                        Polygon polygon = UpdatePolygon(new Point(MousePosition.X, MousePosition.Y));
                         shapeList.RemoveAt(shapeList.Count - 1);
                         shapeList.Add(polygon);
                     }
@@ -243,7 +243,7 @@ namespace _77202708_PaintApplication
         /// </summary>
         /// <param name="point"></param>
         /// <returns></returns>
-        private Polygon getUpdatedPolygon(Point point)
+        private Polygon UpdatePolygon(Point point)
         {
             Polygon tmpPolygon = (Polygon)shapeList[shapeList.Count - 1]; //Get's last object form shapeList which is polygon
             Polygon polygon = new Polygon(tmpPolygon.color, tmpPolygon.isFilled); //Creating new polygon object
@@ -272,7 +272,7 @@ namespace _77202708_PaintApplication
         {
             //Initiating graphic object if it's null
             if (g == null) g = panelCanvas.CreateGraphics();
-            Font fy = new Font("Helvetica", 10, FontStyle.Bold);
+            Font fy = new Font("Above The Sky", 10, FontStyle.Bold);
             Brush br = new SolidBrush(pen.Color);
 
             //This if block shows the shape while dragging the mouse            
@@ -352,24 +352,34 @@ namespace _77202708_PaintApplication
             if (e.KeyCode == Keys.Enter)
             {
                 string cmd = txtCommand.Text;
-                if (cmd.ToLower().Equals("help"))
+                if (cmd.ToLower().Equals("open")) //to open dialogbox from Pc
+                {
+                    if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                    {
+                        label1.Text = openFileDialog1.FileName;
+                        txtCommand.Text = File.ReadAllText(label1.Text);
+                    }
+                }
+
+                if (cmd.ToLower().Equals("help")) //to open helpcommand form
                 {
                     HelpCommand help = new HelpCommand();
                     help.Show();
                     return;
                 }
+                
                 if (!cmd.Contains(" "))
                 {
-                    ShowStatus("Invalid Command!! See help Command", false);
+                    ShowStatus("Wrong command!! See help Command", false);
                     return;
                 }
-                string initialCommand = cmd.Split(' ')[0]; //Getting starting command
+                string initialCommand = cmd.Split(' ')[0]; //Getting starting point 
 
                 if (initialCommand.ToLower().Equals("drawto"))
                 {
                     if (!cmd.Contains(","))
                     {
-                        ShowStatus("Invalid command: Eg. DrawTo 100,150", false);
+                        ShowStatus("Wrong command: Eg. DrawTo 100,150", false);
                         return;
                     }
                     string xyPos = cmd.Split(' ')[1];
@@ -381,7 +391,7 @@ namespace _77202708_PaintApplication
                 {
                     if (!cmd.Contains(","))
                     {
-                        ShowStatus("Invalid command: Eg. MoveTo 100,150", false);
+                        ShowStatus("Wrong command: Eg. MoveTo 100,150", false);
                         return;
                     }
                     string xyPos = cmd.Split(' ')[1];
@@ -389,7 +399,7 @@ namespace _77202708_PaintApplication
                     yAxis = int.Parse(xyPos.Split(',')[1]);
                     ShowStatus("Position successfully moved to " + xAxis + " and " + yAxis, true);
                 }
-                else if (initialCommand.ToLower().Equals("drawcircle"))
+                else if (initialCommand.ToLower().Equals("drawcircle"))  //to draw circle from command
                 {
                     int radius = int.Parse(cmd.Split(' ')[1]);
                     shapes = shapeFactory.getShape("CIRCLE");
@@ -398,11 +408,11 @@ namespace _77202708_PaintApplication
                     ShowStatus("Cirle drawn succesfully.", true);
 
                 }
-                else if (initialCommand.ToLower().Equals("drawrectangle"))
+                else if (initialCommand.ToLower().Equals("drawrectangle")) //to draw rectangle 
                 {
                     if (!cmd.Contains(","))
                     {
-                        ShowStatus("Invalid command: Eg. DrawRectangle 100,150", false);
+                        ShowStatus("Wrong command: Eg. DrawRectangle 100,150", false);
                         return;
                     }
                     string wh = cmd.Split(' ')[1];
@@ -422,12 +432,12 @@ namespace _77202708_PaintApplication
                     shapeList.Add(shapes);
                     ShowStatus("String has been drawn.", true);
                 }
-                else if (initialCommand.ToLower().Equals("repeat"))
+                else if (initialCommand.ToLower().Equals("repeat"))  //to repeat circle/rectanlge many times with given radius
                 {
                     string[] cmdList = cmd.Split(' ');
                     if (cmdList.Length != 5)
                     {
-                        ShowStatus("Invalid Command: Eg. repeat 4 circle radius +10", false);
+                        ShowStatus("Wrong command: Eg. repeat 4 circle radius +10", false);
                         return;
                     }
                     int counter = int.Parse(cmdList[1]);
@@ -438,7 +448,7 @@ namespace _77202708_PaintApplication
 
 
                     int circleRadius = 50;
-                    for (int i = 0; i < counter; i++)
+                    for (int i = 0; i < counter; i++)   //using loop to draw shapes
                     {
                         xAxis = midXPanel - (circleRadius / 2);
                         yAxis = midYPanel - (circleRadius / 2);
@@ -457,24 +467,24 @@ namespace _77202708_PaintApplication
                         }
                         else
                         {
-                            ShowStatus("Invalid Command: Shape name is invalid!!!", false);
+                            ShowStatus("Wrong command: Shape name is invalid!!!", false);
                             return;
                         }
                         circleRadius += radius;
                     }
                     ShowStatus("Command executed successfully!!!", true);
                 }
-                else if (initialCommand.ToLower().Equals("drawline"))
+                else if (initialCommand.ToLower().Equals("drawline")) //to draw line
                 {
                     if (!cmd.Contains(","))
                     {
-                        ShowStatus("Invalid command: Eg. Line x1,y1,x2,y2", false);
+                        ShowStatus("Wrong command: Eg. Line x1,y1,x2,y2", false);
                         return;
                     }
                     string[] xyPos = cmd.Split(' ')[1].Split(',');
                     if (xyPos.Length < 4)
                     {
-                        ShowStatus("Invalid command: Eg. Line x1,y1,x2,y2", false);
+                        ShowStatus("Wrong command: Eg. Line x1,y1,x2,y2", false);
                         return;
                     }
                     xAxis = int.Parse(xyPos[0]);
@@ -487,14 +497,14 @@ namespace _77202708_PaintApplication
                     shapeList.Add(shapes);
                     ShowStatus("Line has been drawn.", true);
                 }
-                else if (initialCommand.ToLower().Equals("drawpolygon"))
+                else if (initialCommand.ToLower().Equals("drawpolygon")) //to draw polygon
                 {
                     string tmp1 = cmd.Split('[')[1];
                     string tmp2 = tmp1.Split(']')[0];
                     string[] points = tmp2.Split(',');
                     if (!cmd.Contains(","))
                     {
-                        ShowStatus("Invalid command: Eg. Polygon [500:500,200:200,240:450]", false);
+                        ShowStatus("Wrong command: Eg. Polygon [500:500,200:200,240:450]", false);
                         return;
                     }
                     Polygon polygon = new Polygon(pen.Color, false);
@@ -509,7 +519,7 @@ namespace _77202708_PaintApplication
                 }
                 else
                 {
-                    ShowStatus("Invalid Command!!!", false);
+                    ShowStatus("Wrong command!!!", false);
                 }
 
                 panelCanvas.Invalidate();
@@ -526,8 +536,8 @@ namespace _77202708_PaintApplication
         /// <param name="isSuccessful"></param>
         private void ShowStatus(string status, bool isSuccessful)
         {
-            lblStatus.Text = status;
-            lblStatus.ForeColor = (isSuccessful) ? Color.Green : Color.Red;
+            lbl_command.Text = status;
+            lbl_command.ForeColor = (isSuccessful) ? Color.Green : Color.Red;
         }
 
         /// <summary>
@@ -538,6 +548,8 @@ namespace _77202708_PaintApplication
         private void btn_clear_Click(object sender, EventArgs e)
         {
             shapeList.Clear();
+            txtCommand.Clear();
+            lbl_command.Text = "";
             panelCanvas.Invalidate();
         }
 
@@ -577,7 +589,7 @@ namespace _77202708_PaintApplication
         {
             if (colorDialog1.ShowDialog() == DialogResult.OK)
             {
-                toolColor.BackColor = colorDialog1.Color;
+                lbl_color.BackColor = colorDialog1.Color;
                 pen.Color = colorDialog1.Color;
             }
         }

@@ -18,6 +18,11 @@ namespace Shapes
         public bool isFilled { get; set; }
         public Color color { get; set; }
 
+
+        /// <summary>
+        /// to draw circle 
+        /// </summary>
+        /// <param name="g"></param>
         public void Draw(Graphics g)
         {
             if (isFilled)
@@ -34,6 +39,18 @@ namespace Shapes
             }
         }
 
+        /// <summary>
+        /// parameter to draw circle
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <param name="width"></param>
+        /// <param name="height"></param>
+        /// <param name="color"></param>
+        /// <param name="isFilled"></param>
+        /// <param name="text"></param>
+        /// <param name="pointX"></param>
+        /// <param name="pointY"></param>
         public void SetParam(int x, int y, int width, int height, Color color, bool isFilled, string text, Point pointX, Point pointY)
         {
             this.x = x;

@@ -31,19 +31,19 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GraphicalProgramming));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.toolLine = new System.Windows.Forms.Label();
+            this.btn_clear = new System.Windows.Forms.Button();
+            this.lbl_line = new System.Windows.Forms.Label();
             this.toolFillPolygon = new System.Windows.Forms.Label();
             this.toolFillCircle = new System.Windows.Forms.Label();
             this.toolFillRectangle = new System.Windows.Forms.Label();
-            this.toolColor = new System.Windows.Forms.Label();
-            this.toolPolygon = new System.Windows.Forms.Label();
-            this.toolCircle = new System.Windows.Forms.Label();
-            this.toolRectangle = new System.Windows.Forms.Label();
+            this.lbl_color = new System.Windows.Forms.Label();
+            this.lbl_polygon = new System.Windows.Forms.Label();
+            this.lbl_circle = new System.Windows.Forms.Label();
+            this.lbl_rectangle = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.lblStatus = new System.Windows.Forms.Label();
+            this.lbl_command = new System.Windows.Forms.Label();
             this.txtCommand = new System.Windows.Forms.TextBox();
             this.panelCanvas = new System.Windows.Forms.Panel();
-            this.btn_clear = new System.Windows.Forms.Button();
             this.materialContextMenuStrip1 = new MaterialSkin.Controls.MaterialContextMenuStrip();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btn_openfile = new System.Windows.Forms.Button();
@@ -62,34 +62,44 @@
             this.panel1.BackColor = System.Drawing.SystemColors.ControlDark;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.btn_clear);
-            this.panel1.Controls.Add(this.toolLine);
+            this.panel1.Controls.Add(this.lbl_line);
             this.panel1.Controls.Add(this.toolFillPolygon);
             this.panel1.Controls.Add(this.toolFillCircle);
             this.panel1.Controls.Add(this.toolFillRectangle);
-            this.panel1.Controls.Add(this.toolColor);
-            this.panel1.Controls.Add(this.toolPolygon);
-            this.panel1.Controls.Add(this.toolCircle);
-            this.panel1.Controls.Add(this.toolRectangle);
+            this.panel1.Controls.Add(this.lbl_color);
+            this.panel1.Controls.Add(this.lbl_polygon);
+            this.panel1.Controls.Add(this.lbl_circle);
+            this.panel1.Controls.Add(this.lbl_rectangle);
             this.panel1.Location = new System.Drawing.Point(12, 96);
             this.panel1.Name = "panel1";
             this.panel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.panel1.Size = new System.Drawing.Size(105, 437);
             this.panel1.TabIndex = 18;
             // 
-            // toolLine
+            // btn_clear
             // 
-            this.toolLine.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.toolLine.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.toolLine.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolLine.ForeColor = System.Drawing.SystemColors.Info;
-            this.toolLine.Image = ((System.Drawing.Image)(resources.GetObject("toolLine.Image")));
-            this.toolLine.Location = new System.Drawing.Point(21, 259);
-            this.toolLine.Name = "toolLine";
-            this.toolLine.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.toolLine.Size = new System.Drawing.Size(51, 28);
-            this.toolLine.TabIndex = 12;
-            this.toolLine.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.toolLine.Click += new System.EventHandler(this.toolLine_Click);
+            this.btn_clear.Location = new System.Drawing.Point(6, 387);
+            this.btn_clear.Name = "btn_clear";
+            this.btn_clear.Size = new System.Drawing.Size(84, 36);
+            this.btn_clear.TabIndex = 13;
+            this.btn_clear.Text = "Clear";
+            this.btn_clear.UseVisualStyleBackColor = true;
+            this.btn_clear.Click += new System.EventHandler(this.btn_clear_Click);
+            // 
+            // lbl_line
+            // 
+            this.lbl_line.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.lbl_line.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lbl_line.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_line.ForeColor = System.Drawing.SystemColors.Info;
+            this.lbl_line.Image = ((System.Drawing.Image)(resources.GetObject("lbl_line.Image")));
+            this.lbl_line.Location = new System.Drawing.Point(21, 259);
+            this.lbl_line.Name = "lbl_line";
+            this.lbl_line.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.lbl_line.Size = new System.Drawing.Size(51, 28);
+            this.lbl_line.TabIndex = 12;
+            this.lbl_line.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbl_line.Click += new System.EventHandler(this.toolLine_Click);
             // 
             // toolFillPolygon
             // 
@@ -134,79 +144,79 @@
             this.toolFillRectangle.Text = "Fill Rectangle";
             this.toolFillRectangle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // toolColor
+            // lbl_color
             // 
-            this.toolColor.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.toolColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.toolColor.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolColor.ForeColor = System.Drawing.SystemColors.Info;
-            this.toolColor.Image = ((System.Drawing.Image)(resources.GetObject("toolColor.Image")));
-            this.toolColor.Location = new System.Drawing.Point(20, 310);
-            this.toolColor.Name = "toolColor";
-            this.toolColor.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.toolColor.Size = new System.Drawing.Size(49, 28);
-            this.toolColor.TabIndex = 8;
-            this.toolColor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.toolColor.Click += new System.EventHandler(this.toolColor_Click);
+            this.lbl_color.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.lbl_color.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lbl_color.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_color.ForeColor = System.Drawing.SystemColors.Info;
+            this.lbl_color.Image = ((System.Drawing.Image)(resources.GetObject("lbl_color.Image")));
+            this.lbl_color.Location = new System.Drawing.Point(20, 310);
+            this.lbl_color.Name = "lbl_color";
+            this.lbl_color.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.lbl_color.Size = new System.Drawing.Size(49, 28);
+            this.lbl_color.TabIndex = 8;
+            this.lbl_color.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbl_color.Click += new System.EventHandler(this.toolColor_Click);
             // 
-            // toolPolygon
+            // lbl_polygon
             // 
-            this.toolPolygon.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.toolPolygon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.toolPolygon.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolPolygon.ForeColor = System.Drawing.SystemColors.Info;
-            this.toolPolygon.Image = ((System.Drawing.Image)(resources.GetObject("toolPolygon.Image")));
-            this.toolPolygon.Location = new System.Drawing.Point(20, 174);
-            this.toolPolygon.Name = "toolPolygon";
-            this.toolPolygon.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.toolPolygon.Size = new System.Drawing.Size(52, 28);
-            this.toolPolygon.TabIndex = 7;
-            this.toolPolygon.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.toolPolygon.Click += new System.EventHandler(this.toolPolygon_Click);
+            this.lbl_polygon.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.lbl_polygon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lbl_polygon.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_polygon.ForeColor = System.Drawing.SystemColors.Info;
+            this.lbl_polygon.Image = ((System.Drawing.Image)(resources.GetObject("lbl_polygon.Image")));
+            this.lbl_polygon.Location = new System.Drawing.Point(20, 174);
+            this.lbl_polygon.Name = "lbl_polygon";
+            this.lbl_polygon.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.lbl_polygon.Size = new System.Drawing.Size(52, 28);
+            this.lbl_polygon.TabIndex = 7;
+            this.lbl_polygon.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbl_polygon.Click += new System.EventHandler(this.toolPolygon_Click);
             // 
-            // toolCircle
+            // lbl_circle
             // 
-            this.toolCircle.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.toolCircle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.toolCircle.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolCircle.ForeColor = System.Drawing.SystemColors.Info;
-            this.toolCircle.Image = ((System.Drawing.Image)(resources.GetObject("toolCircle.Image")));
-            this.toolCircle.Location = new System.Drawing.Point(20, 107);
-            this.toolCircle.Name = "toolCircle";
-            this.toolCircle.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.toolCircle.Size = new System.Drawing.Size(50, 28);
-            this.toolCircle.TabIndex = 6;
-            this.toolCircle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.toolCircle.Click += new System.EventHandler(this.toolCircle_Click);
+            this.lbl_circle.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.lbl_circle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lbl_circle.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_circle.ForeColor = System.Drawing.SystemColors.Info;
+            this.lbl_circle.Image = ((System.Drawing.Image)(resources.GetObject("lbl_circle.Image")));
+            this.lbl_circle.Location = new System.Drawing.Point(20, 107);
+            this.lbl_circle.Name = "lbl_circle";
+            this.lbl_circle.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.lbl_circle.Size = new System.Drawing.Size(50, 28);
+            this.lbl_circle.TabIndex = 6;
+            this.lbl_circle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbl_circle.Click += new System.EventHandler(this.toolCircle_Click);
             // 
-            // toolRectangle
+            // lbl_rectangle
             // 
-            this.toolRectangle.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.toolRectangle.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolRectangle.ForeColor = System.Drawing.SystemColors.Info;
-            this.toolRectangle.Image = ((System.Drawing.Image)(resources.GetObject("toolRectangle.Image")));
-            this.toolRectangle.Location = new System.Drawing.Point(20, 29);
-            this.toolRectangle.Name = "toolRectangle";
-            this.toolRectangle.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.toolRectangle.Size = new System.Drawing.Size(49, 29);
-            this.toolRectangle.TabIndex = 5;
-            this.toolRectangle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.toolRectangle.Click += new System.EventHandler(this.toolRectangle_Click);
+            this.lbl_rectangle.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.lbl_rectangle.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_rectangle.ForeColor = System.Drawing.SystemColors.Info;
+            this.lbl_rectangle.Image = ((System.Drawing.Image)(resources.GetObject("lbl_rectangle.Image")));
+            this.lbl_rectangle.Location = new System.Drawing.Point(20, 29);
+            this.lbl_rectangle.Name = "lbl_rectangle";
+            this.lbl_rectangle.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.lbl_rectangle.Size = new System.Drawing.Size(49, 29);
+            this.lbl_rectangle.TabIndex = 5;
+            this.lbl_rectangle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_rectangle.Click += new System.EventHandler(this.toolRectangle_Click);
             // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // lblStatus
+            // lbl_command
             // 
-            this.lblStatus.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblStatus.ForeColor = System.Drawing.Color.Green;
-            this.lblStatus.Location = new System.Drawing.Point(0, 536);
-            this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(1081, 46);
-            this.lblStatus.TabIndex = 17;
-            this.lblStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_command.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lbl_command.ForeColor = System.Drawing.Color.Green;
+            this.lbl_command.Location = new System.Drawing.Point(0, 536);
+            this.lbl_command.Name = "lbl_command";
+            this.lbl_command.Size = new System.Drawing.Size(1081, 46);
+            this.lbl_command.TabIndex = 17;
+            this.lbl_command.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txtCommand
             // 
@@ -233,16 +243,6 @@
             this.panelCanvas.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelCanvas_MouseDown);
             this.panelCanvas.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelCanvas_MouseMove);
             this.panelCanvas.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panelCanvas_MouseUp);
-            // 
-            // btn_clear
-            // 
-            this.btn_clear.Location = new System.Drawing.Point(6, 387);
-            this.btn_clear.Name = "btn_clear";
-            this.btn_clear.Size = new System.Drawing.Size(84, 36);
-            this.btn_clear.TabIndex = 13;
-            this.btn_clear.Text = "Clear";
-            this.btn_clear.UseVisualStyleBackColor = true;
-            this.btn_clear.Click += new System.EventHandler(this.btn_clear_Click);
             // 
             // materialContextMenuStrip1
             // 
@@ -301,7 +301,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btn_openfile);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.lblStatus);
+            this.Controls.Add(this.lbl_command);
             this.Controls.Add(this.txtCommand);
             this.Controls.Add(this.panelCanvas);
             this.Name = "GraphicalProgramming";
@@ -317,16 +317,16 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label toolLine;
+        private System.Windows.Forms.Label lbl_line;
         private System.Windows.Forms.Label toolFillPolygon;
         private System.Windows.Forms.Label toolFillCircle;
         private System.Windows.Forms.Label toolFillRectangle;
-        private System.Windows.Forms.Label toolColor;
-        private System.Windows.Forms.Label toolPolygon;
-        private System.Windows.Forms.Label toolCircle;
-        private System.Windows.Forms.Label toolRectangle;
+        private System.Windows.Forms.Label lbl_color;
+        private System.Windows.Forms.Label lbl_polygon;
+        private System.Windows.Forms.Label lbl_circle;
+        private System.Windows.Forms.Label lbl_rectangle;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.Label lblStatus;
+        private System.Windows.Forms.Label lbl_command;
         private System.Windows.Forms.TextBox txtCommand;
         private System.Windows.Forms.Panel panelCanvas;
         private System.Windows.Forms.Button btn_clear;

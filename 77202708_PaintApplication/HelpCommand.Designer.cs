@@ -49,9 +49,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(109, 50);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(216, 18);
+            this.label1.Size = new System.Drawing.Size(255, 18);
             this.label1.TabIndex = 1;
-            this.label1.Text = "ToDrawCircle: Circle radius";
+            this.label1.Text = "ToDrawCircle: DrawCircle radius";
             // 
             // label2
             // 
@@ -59,9 +59,9 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(109, 88);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(326, 18);
+            this.label2.Size = new System.Drawing.Size(365, 18);
             this.label2.TabIndex = 1;
-            this.label2.Text = "ToDrawRectangle: Rectangle  width,height";
+            this.label2.Text = "ToDrawRectangle: DrawRectangle  width,height";
             // 
             // label3
             // 
@@ -69,9 +69,9 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(109, 121);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(318, 18);
+            this.label3.Size = new System.Drawing.Size(357, 18);
             this.label3.TabIndex = 1;
-            this.label3.Text = "ToDrawPolygon: Polygon [x:y,x:y,x:y,x:y,]";
+            this.label3.Text = "ToDrawPolygon: DrawPolygon [x:y,x:y,x:y,x:y,]";
             // 
             // label4
             // 
@@ -79,9 +79,9 @@
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(109, 158);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(227, 18);
+            this.label4.Size = new System.Drawing.Size(266, 18);
             this.label4.TabIndex = 1;
-            this.label4.Text = "ToDrawLine: Line x1,y1,x2,y2";
+            this.label4.Text = "ToDrawLine: DrawLine x1,y1,x2,y2";
             // 
             // HelpCommand
             // 
