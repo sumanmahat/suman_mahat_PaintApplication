@@ -16,6 +16,7 @@ namespace _77202708_PaintApplication
 {
     public partial class GraphicalProgramming: MaterialForm
     {
+        //variable declear
         Pen pen = new Pen(Color.Black, 1);
         int xAxis = 0;
         int yAxis = 0;
@@ -39,7 +40,7 @@ namespace _77202708_PaintApplication
         /// </summary>
         private void ResetToolBar()
         {
-            lbl_rectangle.BackColor = Color.Red;
+            lbl_rectangle.BackColor = Color.DarkGray;
             toolFillRectangle.BackColor = Color.DarkGray;
             lbl_circle.BackColor = Color.DarkGray;
             toolFillCircle.BackColor = Color.DarkGray;
@@ -51,11 +52,14 @@ namespace _77202708_PaintApplication
 
         private void toolRectangle_Click(object sender, EventArgs e)
         {
-            ResetToolBar();
-            lbl_rectangle.BackColor = Color.LightSlateGray;
-            shape = "RECTANGLE";
+            
         }
 
+        /// <summary>
+        /// to drag circle into panel
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void toolCircle_Click(object sender, EventArgs e)
         {
             ResetToolBar();
@@ -63,6 +67,11 @@ namespace _77202708_PaintApplication
             shape = "CIRCLE";
         }
 
+        /// <summary>
+        /// to fill circle
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void toolFillCircle_Click(object sender, EventArgs e)
         {
             ResetToolBar();
@@ -70,6 +79,11 @@ namespace _77202708_PaintApplication
             shape = "FILL CIRCLE";
         }
 
+        /// <summary>
+        /// to drag polygon into panel
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void toolPolygon_Click(object sender, EventArgs e)
         {
             ResetToolBar();
@@ -84,6 +98,11 @@ namespace _77202708_PaintApplication
             shape = "FILL POLYGON";
         }
 
+        /// <summary>
+        /// to drag lline into panel
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void toolLine_Click(object sender, EventArgs e)
         {
             ResetToolBar();
@@ -255,6 +274,7 @@ namespace _77202708_PaintApplication
             return polygon; //Returning the new polygon object
         }
 
+
         private void GraphicalProgramming_Load(object sender, EventArgs e)
         {
             xAxis = panelCanvas.Width / 2;
@@ -349,182 +369,196 @@ namespace _77202708_PaintApplication
         /// <param name="e"></param>
         private void txtCommand_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
-            {
-                string cmd = txtCommand.Text;
-                if (cmd.ToLower().Equals("open")) //to open dialogbox from Pc
+            try {
+                if (e.KeyCode == Keys.Enter)
                 {
-                    if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                    string cmd = txtCommand.Text;
+                    if (cmd.ToLower().Equals("open")) //to open dialogbox from Pc
                     {
-                        label1.Text = openFileDialog1.FileName;
-                        txtCommand.Text = File.ReadAllText(label1.Text);
-                    }
-                }
-
-                if (cmd.ToLower().Equals("help")) //to open helpcommand form
-                {
-                    HelpCommand help = new HelpCommand();
-                    help.Show();
-                    return;
-                }
-                
-                if (!cmd.Contains(" "))
-                {
-                    ShowStatus("Wrong command!! See help Command", false);
-                    return;
-                }
-                string initialCommand = cmd.Split(' ')[0]; //Getting starting point 
-
-                if (initialCommand.ToLower().Equals("drawto"))
-                {
-                    if (!cmd.Contains(","))
-                    {
-                        ShowStatus("Wrong command: Eg. DrawTo 100,150", false);
-                        return;
-                    }
-                    string xyPos = cmd.Split(' ')[1];
-                    xAxis = int.Parse(xyPos.Split(',')[0]);
-                    yAxis = int.Parse(xyPos.Split(',')[1]);
-                    ShowStatus("Position successfully set to " + xAxis + " and " + yAxis, true);
-                }
-                else if (initialCommand.ToLower().Equals("moveto"))
-                {
-                    if (!cmd.Contains(","))
-                    {
-                        ShowStatus("Wrong command: Eg. MoveTo 100,150", false);
-                        return;
-                    }
-                    string xyPos = cmd.Split(' ')[1];
-                    xAxis = int.Parse(xyPos.Split(',')[0]);
-                    yAxis = int.Parse(xyPos.Split(',')[1]);
-                    ShowStatus("Position successfully moved to " + xAxis + " and " + yAxis, true);
-                }
-                else if (initialCommand.ToLower().Equals("drawcircle"))  //to draw circle from command
-                {
-                    int radius = int.Parse(cmd.Split(' ')[1]);
-                    shapes = shapeFactory.getShape("CIRCLE");
-                    shapes.SetParam(xAxis, yAxis, radius, 0, pen.Color, false, "", lineY, lineY);
-                    shapeList.Add(shapes);
-                    ShowStatus("Cirle drawn succesfully.", true);
-
-                }
-                else if (initialCommand.ToLower().Equals("drawrectangle")) //to draw rectangle 
-                {
-                    if (!cmd.Contains(","))
-                    {
-                        ShowStatus("Wrong command: Eg. DrawRectangle 100,150", false);
-                        return;
-                    }
-                    string wh = cmd.Split(' ')[1];
-                    int width = int.Parse(wh.Split(',')[0]);
-                    int height = int.Parse(wh.Split(',')[1]);
-                    shapes = shapeFactory.getShape("RECTANGLE");
-                    shapes.SetParam(xAxis, yAxis, width, height, pen.Color, false, "", lineY, lineY);
-                    shapeList.Add(shapes);
-                    ShowStatus("Rectangle drawn succesfully.", true);
-
-                }
-                else if (initialCommand.ToLower().Equals("string"))
-                {
-                    string text = cmd.Split(' ')[1];
-                    shapes = shapeFactory.getShape("STRING");
-                    shapes.SetParam(xAxis, yAxis, 0, 0, pen.Color, false, text, lineY, lineY);
-                    shapeList.Add(shapes);
-                    ShowStatus("String has been drawn.", true);
-                }
-                else if (initialCommand.ToLower().Equals("repeat"))  //to repeat circle/rectanlge many times with given radius
-                {
-                    string[] cmdList = cmd.Split(' ');
-                    if (cmdList.Length != 5)
-                    {
-                        ShowStatus("Wrong command: Eg. repeat 4 circle radius +10", false);
-                        return;
-                    }
-                    int counter = int.Parse(cmdList[1]);
-                    string shapeName = cmdList[2];
-                    int radius = int.Parse(cmdList[4].Split('+')[1]);
-                    int midXPanel = panelCanvas.Width / 2;
-                    int midYPanel = panelCanvas.Height / 2;
-
-
-                    int circleRadius = 50;
-                    for (int i = 0; i < counter; i++)   //using loop to draw shapes
-                    {
-                        xAxis = midXPanel - (circleRadius / 2);
-                        yAxis = midYPanel - (circleRadius / 2);
-
-                        if (shapeName.ToLower().Equals("drawcircle"))
+                        if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                         {
-                            shapes = shapeFactory.getShape("CIRCLE");
-                            shapes.SetParam(xAxis, yAxis, circleRadius, 0, pen.Color, false, "", lineY, lineY);
-                            shapeList.Add(shapes);
+                            label1.Text = openFileDialog1.FileName;
+                            txtCommand.Text = File.ReadAllText(label1.Text);
                         }
-                        else if (shapeName.ToLower().Equals("drawrectangle"))
+                    }
+                    if (cmd.ToLower().Equals("save"))
+                    {
+                        if (saveFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                         {
-                            shapes = shapeFactory.getShape("RECTANGLE");
-                            shapes.SetParam(xAxis, yAxis, circleRadius, circleRadius, pen.Color, false, "", lineY, lineY);
-                            shapeList.Add(shapes);
+                            File.WriteAllText(saveFileDialog1.FileName, txtCommand.Text);
+                            MessageBox.Show("File save succesfully");
+
                         }
-                        else
+                    }
+
+                    if (cmd.ToLower().Equals("help")) //to open helpcommand form
+                    {
+                        HelpCommand help = new HelpCommand();
+                        help.Show();
+                        return;
+                    }
+
+                    if (!cmd.Contains(" "))
+                    {
+                        ShowStatus("Wrong command!! See help Command", false);
+                        return;
+                    }
+                    string initialCommand = cmd.Split(' ')[0]; //Getting starting point 
+
+                    if (initialCommand.ToLower().Equals("drawto"))
+                    {
+                        if (!cmd.Contains(","))
                         {
-                            ShowStatus("Wrong command: Shape name is invalid!!!", false);
+                            ShowStatus("Wrong command: Eg. DrawTo 100,150", false);
                             return;
                         }
-                        circleRadius += radius;
+                        string xyPos = cmd.Split(' ')[1];
+                        xAxis = int.Parse(xyPos.Split(',')[0]);
+                        yAxis = int.Parse(xyPos.Split(',')[1]);
+                        ShowStatus("Position successfully set to " + xAxis + " and " + yAxis, true);
                     }
-                    ShowStatus("Command executed successfully!!!", true);
-                }
-                else if (initialCommand.ToLower().Equals("drawline")) //to draw line
-                {
-                    if (!cmd.Contains(","))
+                    else if (initialCommand.ToLower().Equals("moveto"))
                     {
-                        ShowStatus("Wrong command: Eg. Line x1,y1,x2,y2", false);
-                        return;
+                        if (!cmd.Contains(","))
+                        {
+                            ShowStatus("Wrong command: Eg. MoveTo 100,150", false);
+                            return;
+                        }
+                        string xyPos = cmd.Split(' ')[1];
+                        xAxis = int.Parse(xyPos.Split(',')[0]);
+                        yAxis = int.Parse(xyPos.Split(',')[1]);
+                        ShowStatus("Position successfully moved to " + xAxis + " and " + yAxis, true);
                     }
-                    string[] xyPos = cmd.Split(' ')[1].Split(',');
-                    if (xyPos.Length < 4)
+                    else if (initialCommand.ToLower().Equals("drawcircle"))  //to draw circle from command
                     {
-                        ShowStatus("Wrong command: Eg. Line x1,y1,x2,y2", false);
-                        return;
-                    }
-                    xAxis = int.Parse(xyPos[0]);
-                    yAxis = int.Parse(xyPos[1]);
-                    int y1 = int.Parse(xyPos[2]);
-                    int y2 = int.Parse(xyPos[3]);
-                    lineY = new Point(y1, y2);
-                    shapes = shapeFactory.getShape("LINE");
-                    shapes.SetParam(xAxis, yAxis, 0, 0, pen.Color, false, "", new Point(xAxis, yAxis), lineY);
-                    shapeList.Add(shapes);
-                    ShowStatus("Line has been drawn.", true);
-                }
-                else if (initialCommand.ToLower().Equals("drawpolygon")) //to draw polygon
-                {
-                    string tmp1 = cmd.Split('[')[1];
-                    string tmp2 = tmp1.Split(']')[0];
-                    string[] points = tmp2.Split(',');
-                    if (!cmd.Contains(","))
-                    {
-                        ShowStatus("Wrong command: Eg. Polygon [500:500,200:200,240:450]", false);
-                        return;
-                    }
-                    Polygon polygon = new Polygon(pen.Color, false);
-                    foreach (string point in points)
-                    {
-                        int x = int.Parse(point.Split(':')[0]);
-                        int y = int.Parse(point.Split(':')[1]);
-                        polygon.addPoint(new Point(x, y));
-                    }
-                    shapeList.Add(polygon);
-                    ShowStatus("Polygon has been drawn.", true);
-                }
-                else
-                {
-                    ShowStatus("Wrong command!!!", false);
-                }
+                        int radius = int.Parse(cmd.Split(' ')[1]);
+                        shapes = shapeFactory.getShape("CIRCLE");
+                        shapes.SetParam(xAxis, yAxis, radius, 0, pen.Color, false, "", lineY, lineY);
+                        shapeList.Add(shapes);
+                        ShowStatus("Cirle drawn succesfully.", true);
 
-                panelCanvas.Invalidate();
-                panelCanvas.Refresh();
-                txtCommand.Text = "";
+                    }
+                    else if (initialCommand.ToLower().Equals("drawrectangle")) //to draw rectangle 
+                    {
+                        if (!cmd.Contains(","))
+                        {
+                            ShowStatus("Wrong command: Eg. DrawRectangle 100,150", false);
+                            return;
+                        }
+                        string wh = cmd.Split(' ')[1];
+                        int width = int.Parse(wh.Split(',')[0]);
+                        int height = int.Parse(wh.Split(',')[1]);
+                        shapes = shapeFactory.getShape("RECTANGLE");
+                        shapes.SetParam(xAxis, yAxis, width, height, pen.Color, false, "", lineY, lineY);
+                        shapeList.Add(shapes);
+                        ShowStatus("Rectangle drawn succesfully.", true);
+
+                    }
+                    else if (initialCommand.ToLower().Equals("string"))
+                    {
+                        string text = cmd.Split(' ')[1];
+                        shapes = shapeFactory.getShape("STRING");
+                        shapes.SetParam(xAxis, yAxis, 0, 0, pen.Color, false, text, lineY, lineY);
+                        shapeList.Add(shapes);
+                        ShowStatus("String has been drawn.", true);
+                    }
+                    else if (initialCommand.ToLower().Equals("repeat"))  //to repeat circle/rectanlge many times with given radius
+                    {
+                        string[] cmdList = cmd.Split(' ');
+                        if (cmdList.Length != 5)
+                        {
+                            ShowStatus("Wrong command: Eg. repeat 4 circle radius +10", false);
+                            return;
+                        }
+                        int counter = int.Parse(cmdList[1]);
+                        string shapeName = cmdList[2];
+                        int radius = int.Parse(cmdList[4].Split('+')[1]);
+                        int midXPanel = panelCanvas.Width / 2;
+                        int midYPanel = panelCanvas.Height / 2;
+
+
+                        int circleRadius = 50;
+                        for (int i = 0; i < counter; i++)   //using loop to draw shapes
+                        {
+                            xAxis = midXPanel - (circleRadius / 2);
+                            yAxis = midYPanel - (circleRadius / 2);
+
+                            if (shapeName.ToLower().Equals("drawcircle"))
+                            {
+                                shapes = shapeFactory.getShape("CIRCLE");
+                                shapes.SetParam(xAxis, yAxis, circleRadius, 0, pen.Color, false, "", lineY, lineY);
+                                shapeList.Add(shapes);
+                            }
+                            else if (shapeName.ToLower().Equals("drawrectangle"))
+                            {
+                                shapes = shapeFactory.getShape("RECTANGLE");
+                                shapes.SetParam(xAxis, yAxis, circleRadius, circleRadius, pen.Color, false, "", lineY, lineY);
+                                shapeList.Add(shapes);
+                            }
+                            else
+                            {
+                                ShowStatus("Wrong command: Shape name is invalid!!!", false);
+                                return;
+                            }
+                            circleRadius += radius;
+                        }
+                        ShowStatus("Command executed successfully!!!", true);
+                    }
+                    else if (initialCommand.ToLower().Equals("drawline")) //to draw line
+                    {
+                        if (!cmd.Contains(","))
+                        {
+                            ShowStatus("Wrong command: Eg. Line x1,y1,x2,y2", false);
+                            return;
+                        }
+                        string[] xyPos = cmd.Split(' ')[1].Split(',');
+                        if (xyPos.Length < 4)
+                        {
+                            ShowStatus("Wrong command: Eg. Line x1,y1,x2,y2", false);
+                            return;
+                        }
+                        xAxis = int.Parse(xyPos[0]);
+                        yAxis = int.Parse(xyPos[1]);
+                        int y1 = int.Parse(xyPos[2]);
+                        int y2 = int.Parse(xyPos[3]);
+                        lineY = new Point(y1, y2);
+                        shapes = shapeFactory.getShape("LINE");
+                        shapes.SetParam(xAxis, yAxis, 0, 0, pen.Color, false, "", new Point(xAxis, yAxis), lineY);
+                        shapeList.Add(shapes);
+                        ShowStatus("Line has been drawn.", true);
+                    }
+                    else if (initialCommand.ToLower().Equals("drawpolygon")) //to draw polygon
+                    {
+                        string tmp1 = cmd.Split('[')[1];
+                        string tmp2 = tmp1.Split(']')[0];
+                        string[] points = tmp2.Split(',');
+                        if (!cmd.Contains(","))
+                        {
+                            ShowStatus("Wrong command: Eg. Polygon [500:500,200:200,240:450]", false);
+                            return;
+                        }
+                        Polygon polygon = new Polygon(pen.Color, false);
+                        foreach (string point in points)
+                        {
+                            int x = int.Parse(point.Split(':')[0]);
+                            int y = int.Parse(point.Split(':')[1]);
+                            polygon.addPoint(new Point(x, y));
+                        }
+                        shapeList.Add(polygon);
+                        ShowStatus("Polygon has been drawn.", true);
+                    }
+                    else
+                    {
+                        ShowStatus("Wrong command!!!", false);
+                    }
+
+                    panelCanvas.Invalidate();
+                    panelCanvas.Refresh();
+                    txtCommand.Text = "";
+                }
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -541,7 +575,7 @@ namespace _77202708_PaintApplication
         }
 
         /// <summary>
-        /// to clear shapes from panel
+        /// event to clear shapes from panel
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -554,46 +588,81 @@ namespace _77202708_PaintApplication
         }
 
         /// <summary>
-        /// to open dialog from PC to select
+        /// event to open dialog from PC to select
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btn_openfile_Click(object sender, EventArgs e)
         {
-           if(openFileDialog1.ShowDialog()== System.Windows.Forms.DialogResult.OK)
+            try
             {
-                label1.Text = openFileDialog1.FileName;
-                txtCommand.Text= File.ReadAllText(label1.Text);
+                if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    label1.Text = openFileDialog1.FileName;
+                    txtCommand.Text = File.ReadAllText(label1.Text);
+                }
+                
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
+          
         }
 
         /// <summary>
-        /// to save text file
+        /// event to save text file
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
-            if (saveFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            try
             {
-                File.WriteAllText(saveFileDialog1.FileName, txtCommand.Text);
+                if (saveFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    File.WriteAllText(saveFileDialog1.FileName, txtCommand.Text);
+                    MessageBox.Show("File save succesfully");
+                    
+                }
             }
+            catch (Exception)
+            {
+                MessageBox.Show("Unable to save program");
+            }
+           
         }
 
         /// <summary>
-        /// to open color dialog box
+        /// event to open color dialog box
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void toolColor_Click(object sender, EventArgs e)
         {
-            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            try
             {
-                lbl_color.BackColor = colorDialog1.Color;
-                pen.Color = colorDialog1.Color;
+                if (colorDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    lbl_color.BackColor = colorDialog1.Color;
+                    pen.Color = colorDialog1.Color;
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Unable to choose color");
             }
         }
 
-
+        /// <summary>
+        ///event  to drag and draw rectangle
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Rectangle_Click(object sender, EventArgs e)
+        {
+            ResetToolBar();
+            lbl_rectangle.BackColor = Color.LightSlateGray;
+            shape = "RECTANGLE";
+        }
     }
 }

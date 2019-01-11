@@ -16,6 +16,10 @@ namespace Shapes
         public string text { get; set; }
         public Color color { get; set; }
 
+        /// <summary>
+        /// to write text through command
+        /// </summary>
+        /// <param name="g"></param>
         public void Draw(Graphics g)
         {
             Font fy = new Font("Helvetica", 10, FontStyle.Bold);

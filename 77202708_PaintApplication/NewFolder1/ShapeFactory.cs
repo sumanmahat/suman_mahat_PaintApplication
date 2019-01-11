@@ -7,8 +7,13 @@ using System.Threading.Tasks;
 
 namespace Shapes
 {
-    class ShapeFactory
+     class ShapeFactory
     {
+        /// <summary>
+        /// method to getshpaes
+        /// </summary>
+        /// <param name="shapeType"></param>
+        /// <returns></returns>
         public Shape getShape(string shapeType)
         {
             Shape shape = null;

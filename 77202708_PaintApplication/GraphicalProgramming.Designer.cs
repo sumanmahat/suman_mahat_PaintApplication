@@ -201,7 +201,7 @@
             this.lbl_rectangle.Size = new System.Drawing.Size(49, 29);
             this.lbl_rectangle.TabIndex = 5;
             this.lbl_rectangle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lbl_rectangle.Click += new System.EventHandler(this.toolRectangle_Click);
+            this.lbl_rectangle.Click += new System.EventHandler(this.Rectangle_Click);
             // 
             // contextMenuStrip1
             // 
