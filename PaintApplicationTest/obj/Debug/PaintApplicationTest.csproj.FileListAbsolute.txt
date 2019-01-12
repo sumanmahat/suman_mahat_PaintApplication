@@ -1,0 +1,8 @@
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\77202708_PaintApplication\PaintApplicationTest\bin\Debug\PaintApplicationTest.dll
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\77202708_PaintApplication\PaintApplicationTest\bin\Debug\PaintApplicationTest.pdb
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\77202708_PaintApplication\PaintApplicationTest\bin\Debug\77202708_PaintApplication.exe
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\77202708_PaintApplication\PaintApplicationTest\bin\Debug\MaterialSkin.dll
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\77202708_PaintApplication\PaintApplicationTest\bin\Debug\77202708_PaintApplication.pdb
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\77202708_PaintApplication\PaintApplicationTest\obj\Debug\PaintApplicationTest.csprojResolveAssemblyReference.cache
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\77202708_PaintApplication\PaintApplicationTest\obj\Debug\PaintApplicationTest.dll
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\77202708_PaintApplication\PaintApplicationTest\obj\Debug\PaintApplicationTest.pdb
