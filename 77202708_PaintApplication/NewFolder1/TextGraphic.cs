@@ -11,6 +11,9 @@ namespace Shapes
     [Serializable]
     class TextGraphic : Shape
     {
+        /// <summary>
+        /// /getter setter method
+        /// </summary>
         public int x { get; set; }
         public int y { get; set; }
         public string text { get; set; }

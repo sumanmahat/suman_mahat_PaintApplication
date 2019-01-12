@@ -5,17 +5,17 @@ using _77202708_PaintApplication;
 namespace PaintApplicationTest
 {
     [TestClass]
-    public class UnitTest1
+    public class UnitTest2
     {
         [TestMethod]
-        public void isCircle()
+        public void isPolygon()
         {
             //arrange
             bool test;
-            MethodCheckingCircle ff = new MethodCheckingCircle();
+            MethodCheckingPolygon ff = new MethodCheckingPolygon();
 
             //act
-            test = ff.isCircle("CIRCLE");
+            test = ff.isCircle("POLYGON");
 
 
             //assert

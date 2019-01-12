@@ -35,20 +35,6 @@ namespace _77202708_PaintApplication
             InitializeComponent();
         }
 
-        /// <summary>
-        /// to set color in label when click 
-        /// </summary>
-        private void ResetToolBar()
-        {
-            lbl_rectangle.BackColor = Color.DarkGray;
-            toolFillRectangle.BackColor = Color.DarkGray;
-            lbl_circle.BackColor = Color.DarkGray;
-            toolFillCircle.BackColor = Color.DarkGray;
-            lbl_polygon.BackColor = Color.DarkGray;
-            toolFillPolygon.BackColor = Color.DarkGray;
-            lbl_line.BackColor = Color.DarkGray;
-            listPoint.Clear();
-        }
 
         private void toolRectangle_Click(object sender, EventArgs e)
         {
@@ -110,6 +96,20 @@ namespace _77202708_PaintApplication
             shape = "LINE";
         }
 
+        /// <summary>
+        /// to set color in label when click 
+        /// </summary>
+        private void ResetToolBar()
+        {
+            lbl_rectangle.BackColor = Color.DarkGray;
+            toolFillRectangle.BackColor = Color.DarkGray;
+            lbl_circle.BackColor = Color.DarkGray;
+            toolFillCircle.BackColor = Color.DarkGray;
+            lbl_polygon.BackColor = Color.DarkGray;
+            toolFillPolygon.BackColor = Color.DarkGray;
+            lbl_line.BackColor = Color.DarkGray;
+            listPoint.Clear();
+        }
 
         /// <summary>
         /// mouseDown event for x and y axis
@@ -274,7 +274,11 @@ namespace _77202708_PaintApplication
             return polygon; //Returning the new polygon object
         }
 
-
+        /// <summary>
+        /// load form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void GraphicalProgramming_Load(object sender, EventArgs e)
         {
             xAxis = panelCanvas.Width / 2;
@@ -663,6 +667,12 @@ namespace _77202708_PaintApplication
             ResetToolBar();
             lbl_rectangle.BackColor = Color.LightSlateGray;
             shape = "RECTANGLE";
+        }
+
+        private void btn_help_Click(object sender, EventArgs e)
+        {
+            HelpCommand help = new HelpCommand();
+            help.ShowDialog();
         }
     }
 }

@@ -11,6 +11,9 @@ namespace Shapes
     [Serializable]
     class Circle : Shape
     {
+        /// <summary>
+        /// getter setter methods
+        /// </summary>
 
         public int x { get; set; }
         public int y { get; set; }
@@ -20,7 +23,7 @@ namespace Shapes
 
 
         /// <summary>
-        /// to draw circle 
+        /// method to draw circle 
         /// </summary>
         /// <param name="g"></param>
         public void Draw(Graphics g)

@@ -62,6 +62,9 @@
     <Compile Include="HelpCommand.Designer.cs">
       <DependentUpon>HelpCommand.cs</DependentUpon>
     </Compile>
+    <Compile Include="MethodChecking.cs" />
+    <Compile Include="MethodCheckingCircle.cs" />
+    <Compile Include="MethodCheckingPolygon.cs" />
     <Compile Include="NewFolder1\Circle.cs" />
     <Compile Include="NewFolder1\Lines.cs" />
     <Compile Include="NewFolder1\Polygon.cs" />

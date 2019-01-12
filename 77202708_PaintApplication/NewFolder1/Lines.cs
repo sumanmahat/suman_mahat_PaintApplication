@@ -10,6 +10,9 @@ namespace Shapes
 {
     class Lines : Shape
     {
+        /// <summary>
+        /// getter setter
+        /// </summary>
         public Point pointX { get; set; }
         public Point pointY { get; set; }
         public Color color { get; set; }

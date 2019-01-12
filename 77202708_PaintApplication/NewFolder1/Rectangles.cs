@@ -11,6 +11,9 @@ namespace Shapes
     [Serializable]
     class Rectangles : Shape
     {
+        /// <summary>
+        /// getter setter method
+        /// </summary>
         public int x { get; set; }
         public int y { get; set; }
         public int width { get; set; }
@@ -19,7 +22,7 @@ namespace Shapes
         public Color color { get; set; }
 
         /// <summary>
-        /// draw rectangle
+        /// method to draw rectangle
         /// </summary>
         /// <param name="g"></param>
 

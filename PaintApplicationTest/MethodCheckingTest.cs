@@ -5,18 +5,19 @@ using _77202708_PaintApplication;
 namespace PaintApplicationTest
 {
     [TestClass]
-    public class UnitTest1
+    public class MethodCheckingTest
     {
         [TestMethod]
-        public void isCircle()
+        public void isRectangle()
         {
+
             //arrange
             bool test;
-            MethodCheckingCircle ff = new MethodCheckingCircle();
+            MethodChecking method = new MethodChecking();
+
 
             //act
-            test = ff.isCircle("CIRCLE");
-
+            test = method.isRectangle("RECTANGLE");
 
             //assert
             Assert.IsTrue(test);

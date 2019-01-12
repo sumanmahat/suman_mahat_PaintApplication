@@ -53,6 +53,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.colorDialog2 = new System.Windows.Forms.ColorDialog();
+            this.btn_help = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.materialContextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -112,7 +113,6 @@
             this.toolFillPolygon.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.toolFillPolygon.Size = new System.Drawing.Size(113, 28);
             this.toolFillPolygon.TabIndex = 11;
-            this.toolFillPolygon.Text = "Fill Polygon";
             this.toolFillPolygon.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolFillPolygon.Click += new System.EventHandler(this.toolFillPolygon_Click);
             // 
@@ -141,7 +141,6 @@
             this.toolFillRectangle.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.toolFillRectangle.Size = new System.Drawing.Size(112, 29);
             this.toolFillRectangle.TabIndex = 9;
-            this.toolFillRectangle.Text = "Fill Rectangle";
             this.toolFillRectangle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lbl_color
@@ -292,11 +291,22 @@
             this.label1.Size = new System.Drawing.Size(0, 13);
             this.label1.TabIndex = 21;
             // 
+            // btn_help
+            // 
+            this.btn_help.Location = new System.Drawing.Point(297, 65);
+            this.btn_help.Name = "btn_help";
+            this.btn_help.Size = new System.Drawing.Size(75, 23);
+            this.btn_help.TabIndex = 22;
+            this.btn_help.Text = "Help";
+            this.btn_help.UseVisualStyleBackColor = true;
+            this.btn_help.Click += new System.EventHandler(this.btn_help_Click);
+            // 
             // GraphicalProgramming
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1081, 603);
+            this.Controls.Add(this.btn_help);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btn_openfile);
@@ -305,6 +315,7 @@
             this.Controls.Add(this.txtCommand);
             this.Controls.Add(this.panelCanvas);
             this.Name = "GraphicalProgramming";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GraphicalProgramming";
             this.Load += new System.EventHandler(this.GraphicalProgramming_Load);
             this.panel1.ResumeLayout(false);
@@ -339,5 +350,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.ColorDialog colorDialog2;
+        private System.Windows.Forms.Button btn_help;
     }
 }

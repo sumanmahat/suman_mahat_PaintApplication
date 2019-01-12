@@ -17,6 +17,9 @@ namespace Shapes
             this.isFilled = isFilled;
             listPoints = new List<Point>();
         }
+        /// <summary>
+        /// getter setter
+        /// </summary>
         public Color color { get; set; }
         public bool isFilled { get; set; }
         public void addPoint(Point p)

@@ -9,6 +9,10 @@ namespace _7202708_PaintApplication.NewFolder1
 {
     interface Shape
     {
+        /// <summary>
+        /// to draw shapes
+        /// </summary>
+        /// <param name="g"></param>
         void Draw(Graphics g);
         void SetParam(int x, int y, int width, int height, Color color, bool isFilled, string text, Point pointX, Point pointY);
     }
